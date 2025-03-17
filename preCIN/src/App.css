@@ -1,0 +1,319 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    
+  }
+  body{
+    background: linear-gradient(to left,rgba(93,249,236,1), rgb(216, 255, 243));
+  }
+  
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+/*********************créons notre propre style**********************/
+
+:root{
+    --primaryColor: hsl(94, 55%, 56%);
+    --hoverColor: hsl(94, 75%, 76%);
+    --paleGreen: hsl(96, 75%, 89%);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(0, 0%, 18%);
+    --greyText: hsl(0, 0%, 75%);
+    --bgColor: hsl(113, 11%, 85%);
+    --inputColor: hsl(330, 12%, 97%);
+   /*--inputColor: hsl(114, 14%, 90%);
+
+  /*Font et Typographie */
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: .938rem;
+  --smallFontSize: .813rem;
+  --smallestFontSize: .75rem;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}  
+
+.grid{
+  display: grid;
+  align-items: center;
+  gap: 1.5rem
+}
+
+html{
+  font-size: 90%;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style-type: none;
+}
+
+.icon{
+  font-size: var(--h2FontSize);
+  cursor: pointer;
+}
+
+.message{
+  display: none;
+}
+
+.showMessage{
+  display: block;
+  color: var(--whiteColor);
+  padding: 10px;
+  background: rgb(255,0,0);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.showmessage{
+  display: block;
+  color: var(((--whiteColor)));
+  background: rgb(255,0,0);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.btn{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  color: var(--greyText);
+  
+}
+ 
+.btn .icon{
+  margin-left: .5rem;
+}
+
+.btn:hover{
+  color: var(--primaryColor);
+  background: var(--paleGreen);
+}
+
+.loginPage, .inscriptionPage{
+  height: 100hv;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 50px;
+  
+}
+div.loginPage>.container, div.inscriptionPage>.container{
+    height: 75vh;
+    width: 60%;
+    margin: auto;
+    justify-content: space-between;
+    border-radius: 10px;
+    background: hsl(0,0%, 91%);
+    box-shadow: 0 7px 50px rgb(214, 223, 213);
+   
+  }
+  
+
+    div.container>.gridVisiteur{
+      position: relative;
+      width: 50%;
+      height: 100%; 
+      text-align: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+    div.gridVisiteur>img, div.footerDiv{
+        position: absolute;
+    }
+    div.gridVisiteur>img{
+        justify-content: left;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      .textDiv{
+        position: relative;
+      }
+        .title{
+          color: var(--whiteColor);
+          font-size: 35px;
+          font-weight: 800;
+        }
+      
+        p{
+          color: var(--whiteColor);
+          padding: 1rem;
+          font-weight: 400;
+        }
+
+      .footerDiv{
+        bottom: 10px;
+        padding: 0 1rem;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.248);
+        left: 10px;
+        right: 10px;
+        justify-content: space-between;
+        backdrop-filter: blur(3px);
+        border-radius: 10px;
+      }
+    
+      .text{
+        color: var(--whiteColor);
+      }
+
+      #btn{
+        background: var(--whiteColor);
+        color: var(--primaryColor);
+        padding: .8rem 1.5rem;
+        border-radius: 10px;
+        font-weight: 400;
+        transition: .3s ease;
+        border: none;
+
+      }
+
+      #btn:hover{
+        background: var(--hoverColor);
+        color: var(--blackColor);
+
+      }
+
+/************FORM DIV************/
+
+.formDiv{
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateY(-1rem);
+  width: 50%;
+}
+
+.formDiv>.headerDiv{
+  text-align: center;
+  padding: 0.02rem 0;
+  text-align: center;
+}
+.formDiv>.headerDiv>img{
+  width: 180px;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  padding-right: 1.2rem;
+  
+}
+
+.formDiv>.headerDiv>h3{
+  font-size: 18px;
+  color: var(--blackColor);
+  font-weight: 600;
+}
+
+form.form{
+  gap: 0.5rem;
+  padding-right: 15px;
+}
+form.form>.inputDiv{
+  color: var(--greyText);
+  
+}
+
+form.form>.inputDiv>.input input{
+  background: none;
+  outline: none;
+  border: none;
+  width: 200px;
+
+}
+
+form.form>.inputDiv>label{
+  color: var(--blackColor);
+  font-weight: 400;
+  font-size: 14px;
+  padding: .2rem 0;
+  display: block;
+}
+
+form.form>.inputDiv>.input{
+  gap: .5rem;
+  padding: 1rem;
+  background: var(--inputColor);
+  border-radius: 10px;
+  border-bottom:solid 2px rgb(126, 250, 1);
+}
+
+form.form.grid> button[type='submit']#btnLogin{
+  padding: .8rem;
+  background: var(--primaryColor);
+  border-radius: 10px;
+  border:none;
+  color: var(--whiteColor);
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  font-size: 16px;
+  width: 50%;
+  gap: .5rem;
+  transition: .3s ease;
+}
+
+form.form.grid> button[type='submit']#btnLogin:hover{
+  background: var(--hoverColor);
+  transition: .3s ease-in-out;
+  color: var(--blackColor);
+}
+
+span.forgotPassword{
+  opacity: 0.7;
+  font-size: 13px;
+  color: var(--blackColor);
+  text-align: center;
+}
+a{
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* Boutons personnalisés */
+.custom-button {
+  background-color: #a8e063;
+  border-color: #a8e063;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.custom-button:hover {
+  background-color: #56ab2f;
+  border-color: #56ab2f;
+  transform: scale(1.05);
+}
+/* Sidebar dans Gestion CIN */
+.sidebar {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(4px);
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: hsl(0, 0%, 18%) ;
+}
+
+
+
+  
+
+

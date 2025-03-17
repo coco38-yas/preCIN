@@ -1,0 +1,310 @@
+@font-face{
+    font-family: poppins;
+    src: url("../fonts/Poppins/Poppins-Regular.ttf");
+}
+
+*{
+    font-family: poppins;
+    font-size: 12pt;
+}
+
+body{
+    margin: 0;
+    
+    background-image: url('./Assets/green-euclidean-vector-clip-art-grass-green-colorful-silk-background-vector-5af.png');
+    /*background: linear-gradient(to left,rgb(3, 112, 103), rgb(3, 151, 107));*/
+    
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.cin-grid{
+    background-color:rgba(0,0,0,0.3);
+    width: 100%;
+    
+    border-right: solid 2px #0e0;
+    
+    backdrop-filter: blur(4px);
+    
+    
+}
+
+.body-container{
+    /*background-image: url('./Assets/green-euclidean-vector-clip-art-grass-green-colorful-silk-background-vector-5af.png');*/
+    background: linear-gradient(to left,rgba(93,249,236,0.2), rgb(216, 255, 243,0.2));
+    width: 98%;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    /*top: none;
+    /*left: 268px;*/
+    box-shadow: 0 0.4px 8px rgb(68, 68, 68);
+    margin-left: 10px;
+   
+    
+   
+}
+
+
+.btn-create-db{
+    /* height: 350px; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+   gap: 15px;
+    
+}
+
+.cin-grid .btn-create-db .form-split:first-child{
+   width: 70%;
+    background: rgba(102, 255, 183, 0.3);
+    margin: 2px;
+    padding: 10px 1px;
+  
+}
+
+
+.cin-grid .btn-create-db .form-split:last-child>.display-img{
+    width: 25%;
+    background: rgba(0,0,0,0.3);
+    margin: 4px;
+    height: 200px;
+
+}
+    
+
+
+
+
+.btn-create-db input[type='submit']{
+    margin-top: 4px;
+    margin-left: 15px;
+    margin-bottom: 4px;
+    width: auto;
+    color:#fff;
+    background-color: #0e0;
+    border: none;
+    text-align: center;
+    justify-content: center;
+    padding: 4px;
+    transition: all 0.8s ease;
+}
+
+
+.btn-create-db input[type='submit'], button:hover{
+    background: linear-gradient(to left,rgba(93,249,236,1), rgb(216, 255, 243));
+    transition: all 0.2 ease;
+    color: #0e0;
+    transition: all 0.8s ease;
+}
+
+#users-select, .btn-create-db input[type="text"], input[type="number"], input[type="date"], input[type="file"], select{
+    margin-top: 4px;
+    margin-left: 10px;
+    margin-bottom: 4px;
+    width: 250px;
+    color: rgb(29, 31, 28);
+    gap: .04rem;
+    padding: .2rem;
+    background: var(--inputColor);
+    border-radius: 10px;
+    border-bottom:solid 6px rgb(126, 250, 1);
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+   
+}
+
+#users-select{
+    margin-top: 4px;
+    margin-left: 10px;
+    margin-bottom: 4px;
+    width: 100px;
+    color: rgb(29, 31, 28);
+    gap: .04rem;
+    padding: .2rem;
+    background: var(--inputColor);
+    border-radius: 10px;
+    border-bottom:solid 6px rgb(126, 250, 1);
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+   
+}
+
+#agent, #user, #textfield {
+    background: linear-gradient(to left,rgba(93,249,236,1), rgb(216, 255, 243));
+}
+
+.lb{
+    color: #fff;
+    padding-left: 10px;
+   
+}
+
+.btn-create-db  input[type='text'], input[type="number"], input[type="date"], input[type="file"], select:hover{
+    background: linear-gradient(to left,rgba(93,249,236,1), rgb(216, 255, 243));
+    transition: all 0.2s ease;
+    color: #0e0;
+    transition: all 0.8s ease;
+}
+
+
+
+.lb-span{
+    display: inline-block;
+}
+
+
+
+
+
+
+.list-commune{
+    width: 99%;
+    background: rgba(102, 255, 183, 0.3);
+   
+}
+
+h1{
+    color: #0e0;
+    font-size: 15pt;
+    font-weight: 600;
+    margin-top: 10pt;
+    text-shadow: 0 2px 8px rgb(0, 0, 0);
+    text-align: center;
+}
+
+.btn-edit{
+    background: #0e0;
+    outline: none;
+    padding:2px;
+    font-size: small;
+    margin: 4px;
+    color: #fff;
+    border: none;
+}
+.btn-edit:hover{
+    background: #fff;
+    outline: none;
+    padding: 3px;
+    font-size: small;
+    margin: 4px;
+    color: #0e0;
+    cursor: pointer;
+    transition: all 0.02s ease-in-out;
+    border-style: double;
+    box-shadow: 0 0.4px 2px rgb(68, 68, 68);
+}
+.btn-delete{
+    background: rgb(255, 0, 0);
+    outline: none;
+    padding: 4px;
+    font-size: small;
+    color: #fff;
+    margin: 4px;
+    border:none;
+}
+
+.btn-delete:hover{
+    background: #fff;
+    outline: none;
+    padding: 3px;
+    font-size: small;
+    margin: 4px;
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+    transition: all 0.02s ease-in-out;
+    border-style: double;
+    box-shadow: 0 0.4px 2px rgb(68, 68, 68);
+}
+.table-making {
+    border-collapse: collapse;
+    margin: 10px 10px;
+    font-size: 12px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+    
+}
+
+.table-making thead tr{
+    background-color: rgb(17, 184, 235);
+    
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table-making thead tr th{
+    border-left: solid 1px #fff;
+}
+
+.list-commune>table.table-making th, table.table-making td{
+    padding: 2px 2px; 
+    text-align: center;
+}
+
+.table-making tbody tr{
+    border-bottom:  1px solid rgb(126, 250, 1);
+    color: #fff;
+}
+
+.table-making tbody tr:nth-last-of-type(even){
+    background-color: aquamarine;
+    color: #000;
+}
+
+.table-making tbody tr:last-of-type{
+    border-bottom: 4px solid #0e0;
+}
+
+
+
+button[type="submit"]{
+    margin-top: 4px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    width: auto;
+    color:#fff;
+    background-color: #0e0;
+    border: none;
+    text-align: center;
+    justify-content: center;
+    padding: 4px;
+    transition: all 0.8s ease;
+}
+
+
+button[type="submit"]:hover{
+    background: linear-gradient(to left,rgba(93,249,236,1), rgb(216, 255, 243));
+    transition: all 0.2 ease;
+    color: #0e0;
+    transition: all 0.8s ease;
+}
+
+tr td img:hover{
+    transform: scale(5);
+    transition: all 0.8s ease;
+    cursor: pointer;
+    
+}
+
+tr td.scale:hover{
+    transform: scale(1.4);
+    transition: all 0.8s ease;
+    cursor: pointer;
+    background: rgba(0, 255, 242, 0.945);
+}
+
+/* Sidebar dans Gestion CIN */
+.sidebar {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(4px);
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
