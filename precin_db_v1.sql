@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `precin_db`
 --
-
+CREATE DATABASE IF NOT EXISTS `precin_db`;
+USE `precin_db`;
 -- --------------------------------------------------------
 
 --

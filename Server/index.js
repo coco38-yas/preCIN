@@ -37,7 +37,7 @@ app.listen(PORT, () => {
     console.log(`Server est lancé au port: ${PORT}`);
   });
 // Création de la connexion avec les valeurs extraites
-const db = mysql.createConnection({
+export const db = mysql.createConnection({
     host: dbUrl.hostname,                         // 'localhost'
     user: dbUrl.username,                         // 'root'
     password: dbUrl.password,                     // '' (vide s'il n'y a pas de mot de passe)
