@@ -70,7 +70,7 @@ const CreatCinForCom = () => {
 
     let newValue = value;
 
-    // 🔹 Validation stricte pour `numSerieDelivre`
+    //  Validation stricte pour `numSerieDelivre`
     if (name === "numSerieDelivre") {
       newValue = value.replace(/\D/g, ""); // Supprimer tout sauf les chiffres
       newValue = newValue.slice(0, 12); // Limiter à 12 chiffres

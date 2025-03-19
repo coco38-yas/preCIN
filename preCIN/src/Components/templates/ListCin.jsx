@@ -109,7 +109,7 @@ const ListCin = ({ selectedCommune }) => {
         params.value ? new Date(params.value).toLocaleDateString() : 'Aucune'
     },
     { field: 'carte_type', headerName: 'Type', width: 120 },
-    { field: 'commune_id', headerName: 'CR', width: 50 },
+    { field: 'commune_id', headerName: 'Com.', width: 50 },
     {
       field: 'actions',
       headerName: 'Actions',

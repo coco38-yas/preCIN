@@ -140,7 +140,7 @@ const AppContent = () => {
                 <Route path="/agentregistre" element={<AgentRegistre />} />
                 <Route path="/listcins" element={<ListCins />} />
                 <Route path="/editcommune/:id" element={<BodyAccueil />} />
-                <Route path="/activate" element={<ActivationForm />} />
+                {/* <Route path="/activate" element={<ActivationForm />} /> */}
 
               </Routes>
             </MainLayout>
