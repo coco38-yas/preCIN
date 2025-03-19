@@ -6,6 +6,8 @@ import multer from 'multer'
 import path from 'path'
 import bcrypt from 'bcrypt'
 import router from './routes/cin.js'
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express()
 app.use(express.json())
@@ -22,19 +24,25 @@ app.get("/", (req, res) => {
     res.send("Bienvenue sur le serveur preCIN !");
 });
 
-const port = 3000
+// const port = 3000
 //Faire marcher le server
 
-app.listen(port, () => {
-    console.log(`Server est lancé au port ${port}`)
-})
-// Creation de la base de données (mySQL)
-export const db = mysql.createConnection({
-    user: 'root',
-    host: 'localhost',
-    password: '',
-    database: 'precin_db',
-})
+// Utilisation de la variable d'environnement PORT, avec une valeur par défaut
+const PORT = process.env.PORT || 3000;
+
+// On parse l'URL de connexion
+const dbUrl = new URL(process.env.DATABASE_URL);
+
+app.listen(PORT, () => {
+    console.log(`Server est lancé au port: ${PORT}`);
+  });
+// Création de la connexion avec les valeurs extraites
+const db = mysql.createConnection({
+    host: dbUrl.hostname,                         // 'localhost'
+    user: dbUrl.username,                         // 'root'
+    password: dbUrl.password,                     // '' (vide s'il n'y a pas de mot de passe)
+    database: dbUrl.pathname.replace('/', '')     // 'precin_db'
+  });
 
 // Route d'inscription
 app.post('/inscription', (req, res) => {
