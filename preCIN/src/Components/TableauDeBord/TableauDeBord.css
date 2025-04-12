@@ -1,39 +1,103 @@
+/* ====== Effets de survol et d'animation ====== */
 .card-header-hover {
-    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-    /* Fond par défaut (vous pouvez le modifier selon votre design) */
-    background: linear-gradient(to left,rgb(3, 112, 3), rgb(3, 11, 107));
-    color: #00ffff;
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+  background: linear-gradient(to left, rgb(3, 112, 3), rgb(3, 11, 107));
+  color: #00ffff;
+}
+
+.card-header-hover:hover {
+  background: linear-gradient(45deg, #00f7ff, #21f367);
+  color: #ffffff;
+}
+
+@keyframes glowEffect {
+  0% {
+    box-shadow: 0px 0px 20px rgba(0, 255, 242, 0.5);
   }
-  
-  .card-header-hover:hover {
-    background: linear-gradient(45deg, #00f7ff, #21f367);
-    color: #ffffff; /* Change la couleur du texte au survol */
+  100% {
+    box-shadow: 0px 0px 35px rgba(0, 255, 242, 0.8);
+  }
+}
+
+/* Effet lumineux pour les valeurs animées */
+.animated-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffffff, #ffff00);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 3px 3px 5px rgba(255, 0, 0, 0.3);
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* ====== Gestion de l'impression ====== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-dashboard, .print-dashboard * {
+    visibility: visible;
+  }
+
+  .print-dashboard {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Cacher les éléments inutiles */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Mettre en avant la section imprimable */
+  .printable {
+    display: block !important;
+    position: static;
+    background:#b9fffd;
     
+
   }
-  
-  /* .card-scaling:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-        transition: all 0.8s ease;
+
+  /* Mise en page propre */
+  .print-dashboard {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #b9fffd;
   }
-   */
-   @keyframes glowEffect {
-    0% { box-shadow: 0px 0px 20px rgba(0, 255, 242, 0.5); }
-    100% { box-shadow: 0px 0px 35px rgba(0, 255, 242, 0.8); }
+
+  .print-dashboard h2,
+  .print-dashboard h3 {
+    text-align: center;
+    margin: 20px 0;
   }
-  
-  .animated-value {
-    font-size: 2.5rem;
-    font-weight: bold;
-    background: linear-gradient(90deg, #ffffff, #ffff00);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 3px 3px 5px rgba(255, 0, 0, 0.3);
-    animation: pulseGlow 1.5s infinite alternate;
+
+  .stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #b9fffd;
   }
-  
-  @keyframes pulseGlow {
-    0% { text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5); }
-    100% { text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9); }
+
+  .stats-table th,
+  .stats-table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
   }
-  
+
+  /* Ajout d'un style pour le header du tableau imprimable */
+  .stats-table th {
+    background-color: #232222;
+  }
+}

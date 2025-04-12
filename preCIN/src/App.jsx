@@ -28,6 +28,7 @@ import TableauDeBord from './Components/TableauDeBord/TableauDeBord';
 import Apropos from './Components/Apropos';
 import CreatCinForCom from './Components/templates/CreatCinForCom';
 import ListCins from './Components/templates/ListCins'
+import UserList from './Components/Utilisateur/UserList';
 
 import logo from './Components/templates/Assets/PRECIN.png';
 
@@ -45,7 +46,7 @@ import PrivateRoute from './PrivateRoute';
 import AgentUpdate from './Components/Agents/AgentUpdate';
 import AgentRegistre from './Components/Agents/AgentRegistre';
 import BodyAccueil from './Components/templates/BodyAccueil';
-import ActivationScreen from './Components/ActivationScreen';
+// import ActivationScreen from './Components/ActivationScreen';
 
 
 // Layout pour les pages protégées
@@ -71,11 +72,14 @@ const MainLayout = ({ children }) => {
       <AppBar position="fixed" sx={{ background: 'linear-gradient(to left, rgb(3,112,3), rgb(3,11,107))' }}>
         <Toolbar>
           {/* Logo à gauche */}
-          <Box sx={{ display: 'flex', alignItems: 'center', mr: 2, mb: 2 }}>
-            <img src={logo} alt="preCIN" style={{ width: '120px' }} />
+          <Box sx={{ display: 'flex', alignItems: 'center', mr: 2, mb: 2, marginLeft:'0px' }}>
+            <img src={logo} alt="preCIN" style={{ width: '120px', transition: 'transform 0.3s ease-in-out'}}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.5)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}  
+            />
           </Box>
           {/* Boutons de navigation centrés */}
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexGrow: 1, marginBottom: "23px", marginRight: "80px" }}>
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexGrow: 1, marginBottom: "24.4px", marginLeft: "105px" }}>
             <Button component={Link} to="/accueil" sx={isActive('/accueil')} startIcon={<HomeIcon />}>
               Accueil
             </Button>
@@ -97,7 +101,7 @@ const MainLayout = ({ children }) => {
 
           </Box>
           {/* Espace pour l'utilisateur courant et Logout */}
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "23px" }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "23px", marginLeft: "130px" }}>
             {currentUser && (
               <>
                 <Typography variant="body1" sx={{ mr: 1 }}>
@@ -132,6 +136,7 @@ const AppContent = () => {
                 <Route path="/accueil" element={<Accueil />} />
                 <Route path="/trace" element={<Trace />} />
                 <Route path="/users" element={<Users />} />
+                <Route path="/users/userlist" element={<UserList />} />
                 <Route path="/agents" element={<Agents />} />
                 <Route path="/tableaudebord" element={<TableauDeBord />} />
                 <Route path="/apropos" element={<Apropos />} />

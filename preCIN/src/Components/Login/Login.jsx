@@ -44,14 +44,14 @@ const Login = () => {
           <img src={fond} alt="Background" />
           <div className="textDiv">
             <h2 className="title">
-              Créons ensemble une base de données plus efficace
+              Créeons ensemble une base de données plus efficace
             </h2>
-            <p>Offrons des gestions plus cohérentes et relationnelles</p>
+            <p className="title2">Offrons des gestions plus cohérents et relationnels</p>
           </div>
           <div className="footerDiv flex">
-            <span className="text">Pas encore de compte ?</span>
+            <span className="text">Besoin de créer un compte?</span>
             <Link to="/inscription">
-              <button id="btn">M'inscrire</button>
+              <button id="btn">M'inscrire!</button>
             </Link>
           </div>
         </div>

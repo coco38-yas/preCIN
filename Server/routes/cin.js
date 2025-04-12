@@ -23,6 +23,11 @@ router.post('/', upload.single('image'), cinController.createCin );
 router.get('/', cinController.getCin);
 router.get('/:id', cinController.getCindById);
 router.put('/:id', upload.single('image'), cinController.updateCin);
+// Route pour confirmer une carte (mise à jour de la colonne commune_i à 1)
+router.patch('/confirm/:id', cinController.confirmCard);
+// Ajout de l'endpoint PATCH pour la mise à jour partielle (ex: soft-delete/restauration)
+router.patch('/:id', cinController.patchCin);
+
 router.delete('/:id', cinController.deleteCin);
 // router.get('/dashboard', cinController.getDashboard )
 export default router;

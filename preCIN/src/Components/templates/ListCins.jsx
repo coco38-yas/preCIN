@@ -13,8 +13,10 @@ import {
   IconButton,
   Alert,
 } from '@mui/material';
-import { Edit, Delete, Search } from '@mui/icons-material';
+import { Edit, Delete, Search, Visibility as VisibilityIcon } from '@mui/icons-material';
 import StyledDataGrid from './StyledDataGrid';
+
+
 
 const ListCins = ({ selectedCommune }) => {
   const [allCards, setAllCards] = useState([]);
@@ -22,6 +24,7 @@ const ListCins = ({ selectedCommune }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [openDialog, setOpenDialog] = useState(false);
   const [message, setMessage] = useState('');
+  const [selectedRow, setSelectedRow] = useState(null);
 
   const fetchCards = async () => {
     try {
@@ -42,7 +45,7 @@ const ListCins = ({ selectedCommune }) => {
     const results = allCards.filter(
       (card) =>
         (card.nom && card.nom.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      (card.prenom && card.prenom.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (card.prenom && card.prenom.toLowerCase().includes(searchTerm.toLowerCase())) ||
         // (card.num_serie_delivre && card.num_serie_delivre.includes(searchTerm))||
         (card.commune_name && card.commune_name.toLowerCase().includes(searchTerm.toLowerCase()))
     );
@@ -71,14 +74,39 @@ const ListCins = ({ selectedCommune }) => {
           <img
             src={`http://localhost:3000/Uploads/${params.value}`}
             alt="Carte"
-            style={{ width: '60px', borderRadius: '5px' }}
+            style={{
+              width: '100%',
+              transition: 'transform 0.3s ease-in-out',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.5)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           />
         ) : 'Aucune'
     },
     { field: 'nom', headerName: 'Nom', width: 150 },
     { field: 'prenom', headerName: 'Prénoms', width: 150 },
-    { field: 'region_id', headerName: 'Région', width: 50 },
-    { field: 'commune_name', headerName: 'Commune', width: 150 },
+    { field: 'sexe', headerName: 'Sexe', width: 100 },
+    { field: 'region', headerName: 'Région', width: 50 },
+    { field: 'agent_chef_id', headerName: 'Chef', width: 50 },
+    { field: 'user_id', headerName: 'User', width: 50 },
+    { field: 'num_serie_origine', headerName: 'N° Série Original', width: 150 },
+    { field: 'num_serie_delivre', headerName: 'N° Série Délivrée', width: 150 },
+    {
+      field: 'date_ajout',
+      headerName: "Date d'ajout",
+      width: 100,
+      renderCell: (params) =>
+        params.value ? new Date(params.value).toLocaleDateString() : 'Aucune'
+    },
+    {
+      field: 'date_delivre',
+      headerName: "Date de del.",
+      width: 100,
+      renderCell: (params) =>
+        params.value ? new Date(params.value).toLocaleDateString() : 'Aucune'
+    },
+    { field: 'carte_type', headerName: 'Type', width: 120 },
+    { field: 'commune_id', headerName: 'Com.', width: 50 },
     {
       field: 'actions',
       headerName: 'Actions',
@@ -91,13 +119,22 @@ const ListCins = ({ selectedCommune }) => {
           <IconButton color="error" onClick={() => deleteCard(params.row.id)}>
             <Delete />
           </IconButton>
+          <IconButton
+            color="success"
+            onClick={() => {
+              setSelectedRow(params.row);
+              setOpenDialog(true);
+            }}
+          >
+            <VisibilityIcon />
+          </IconButton>
         </>
       )
     },
   ];
 
   return (
-    <Box sx={{ borderRadius: "8px", width: '100%', padding: '10px', background: 'rgba(0, 255, 242, 0.945)' }} >
+    <Box sx={{ borderRadius: "8px", marginLeft: '-160px', width: '1480px', padding: '10px', background: 'rgba(0, 255, 242, 0.945)' }} >
       {message && <Alert severity="error">{message}</Alert>}
 
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
@@ -170,6 +207,10 @@ const ListCins = ({ selectedCommune }) => {
                     borderRadius: '12px',
                     mr: 4,
                     objectFit: 'cover',
+                    transition: 'transform 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'scale(1.6)', marginLeft: '180px'
+                    }
                   }}
                 />
                 <Box

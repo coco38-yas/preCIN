@@ -3,6 +3,8 @@ import { Router } from 'express';
 import {
   createAgent,
   getAgents,
+  getAgentByCommune,
+  getAgentById,
   updateAgent,
   deleteAgent
 } from '../controllers/agentController.js';
@@ -11,6 +13,12 @@ const router = Router();
 
 // Route pour récupérer tous les agents
 router.get('/', getAgents);
+
+// Route pour récupérer l'agent/chef par commune (exemple : GET /bycommune?commune=1)
+router.get('/bycommune', getAgentByCommune);
+
+// Route pour récupérer un agent par son ID
+router.get('/:id', getAgentById);
 
 // Route pour créer un nouvel agent
 router.post('/', createAgent);

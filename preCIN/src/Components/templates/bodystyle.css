@@ -139,6 +139,8 @@ body{
 #agent, #user, #textfield {
     background: linear-gradient(to left,rgba(93,249,236,1), rgb(0, 255, 179));
     font-size: 12pt;
+    border-radius: 4px;
+    justify-content: center;
 }
 
 .lb{

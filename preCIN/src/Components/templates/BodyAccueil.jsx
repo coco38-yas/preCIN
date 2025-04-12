@@ -20,6 +20,8 @@ import { Card, CardContent } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MailIcon from '@mui/icons-material/Mail';
 import logo from './Assets/PRECIN.png';
+import prefetLogo from './Assets/logoprefet.png';
+// import  from './LoginAssets/logoprefet.png';
 
 import { DataGrid } from '@mui/x-data-grid';
 import { IconButton } from '@mui/material';
@@ -199,11 +201,12 @@ const BodyAccueil = () => {
     { id: 3, name: 'Soanierana-Ivongo' },
     { id: 4, name: 'Maroantsetra' },
     { id: 5, name: 'Mananara-Nord' },
-  
+
   ];
 
   const regionList = [
-    {id: 1, name: 'Analanjirofo'}
+    { id: 1, name: 'Analanjirofo' },
+    { id: 2, name: 'Autres...' }
   ]
 
 
@@ -214,10 +217,23 @@ const BodyAccueil = () => {
       <Grid container spacing={4} padding={4} >
         <Card sx={{ boxShadow: 3, color: '#000', margin: '4px' }} style={{ background: 'rgba(233, 255, 242, 0.945)' }}>
           <CardContent>
+          <div className="logo-container">
+                <div className="logo-wrapper">
+                  {/* Face avant avec le logo normal */}
+                  <div className="logoFront">
+                    <img src={prefetLogo} alt="Logo Prefecture" />
+                  </div>
+                  {/* Face arrière avec un filtre blanc */}
+                  <div className="logoFront">
+                    <img src={prefetLogo} alt="Logo Préfecture Blanc" />
+                  </div>
+                </div>
+              </div>
             <Typography variant="h4" gutterBottom>
               Application de gestion de la carte d'identité nationale
               <img src={logo} alt="preCIN" style={{ width: '400px' }} />
               (préprocessus CIN)
+              
               <h6>
                 Développé par: Zohery Raharimahazo.
                 <br />
